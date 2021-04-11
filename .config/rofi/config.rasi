@@ -3,7 +3,8 @@ configuration {
 	font: "mono 14";
 	bw: 4;
 	show-icons: true;
-	color-normal: "#0f111b, #ecf0c1, #000000, #5ccc96, #0f111b";
-	color-window: "#0f111b, #00a3cc, #00a3cc";
+	hide-scrollbar: true;
+	color-normal: "#0f111b, #ecf0c1, #000000, #686f9a, #0f111b";
+	color-window: "#0f111b, #7a5ccc, #7a5ccc";
 	kb-mode-next: "Shift+Right,Alt+Tab";
 }
