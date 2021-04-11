@@ -14,6 +14,9 @@ nitrogen --random --set-centered
 # notifications
 dunst &
 
+# media auto-mounting
+udiskie &
+
 # system tray
 nm-applet &
 blueman-applet &
