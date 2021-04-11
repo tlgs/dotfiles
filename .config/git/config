@@ -1,0 +1,5 @@
+[user]
+	email = tlgs@users.noreply.github.com
+	name = Tiago Seabra
+[init]
+	defaultBranch = master
