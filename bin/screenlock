@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# some Spaceduck colors
+clr='#00000000'
+foreground='#ecf0c1aa'
+green="#5ccc96aa"
+red='#e33400aa'
+blue='#00a3ccaa'
+yellow='#f2ce00aa'
+
+i3lock \
+  --blur=5 \
+  --indicator \
+  --insidevercolor=$clr \
+  --insidewrongcolor=$clr \
+  --insidecolor=$clr \
+  --ringvercolor=$green \
+  --ringwrongcolor=$red \
+  --ringcolor=$blue \
+  --line-uses-inside \
+  --keyhlcolor=$foreground \
+  --bshlcolor=$yellow \
+  --separatorcolor=$clr \
+  --veriftext="" \
+  --wrongtext="" \
+  --noinputtext="" \
+  --locktext="" \
+  --lockfailedtext="" \
+  --radius 150 \
+  --ring-width 50

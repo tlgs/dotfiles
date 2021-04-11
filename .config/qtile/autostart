@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# keyboard
+setxkbmap -layout pt
+
+# DPMS & session lock
+xset dpms 180 0 0
+xss-lock -- screenlock &
+
+# compositor & background
+picom &
+nitrogen --random --set-centered
+
+# notifications
+dunst &
+
+# system tray
+nm-applet &
+blueman-applet &
+cbatticon &
+volumeicon &
+redshift-gtk &

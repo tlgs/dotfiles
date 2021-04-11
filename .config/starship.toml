@@ -1,0 +1,7 @@
+[battery]
+format = "[$symbol $percentage]($style) "
+disabled = true
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "
+read_only = "🔐 "
