@@ -5,6 +5,7 @@
 
 alias ls='ls --color=auto'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias vim='nvim'
 
 httpd() {
   python -m http.server "${1:-8001}"
