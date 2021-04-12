@@ -4,7 +4,7 @@
 setxkbmap -layout pt
 
 # DPMS & session lock
-xset dpms 180 0 0
+xset dpms 240 0 0
 xss-lock -- screenlock &
 
 # compositor & background
