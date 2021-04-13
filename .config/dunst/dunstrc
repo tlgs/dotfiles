@@ -1,0 +1,45 @@
+[global]
+    font = Sans-serif 12
+
+    geometry = "300x50-15+49"
+    shrink = no
+    transparency = 20
+    show_indicators = no
+   
+    format = "<b>%s</b>\n%b"
+
+    separator_height = 4
+    separator_color = "#0f111b"
+    padding = 6
+    horizontal_padding = 6
+    frame_width = 4
+
+    alignment = center
+    bounce_freq = 0
+
+    stack_duplicates = yes
+    hide_duplicate_count = yes
+
+    icon_position = off
+    max_icon_size = 80
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
+
+[urgency_low]
+    frame_color = "#5ccc96"
+    background = "#0f111b"
+    foreground = "#5ccc96"
+    timeout = 4
+
+[urgency_normal]
+    frame_color = "#00a3cc"
+    background = "#0f111b"
+    foreground = "#00a3cc"
+    timeout = 6
+
+[urgency_critical]
+    frame_color = "#e33400"
+    background = "#0f111b"
+    foreground = "#e33400"
+    timeout = 8
+
+# vim: ft=cfg
