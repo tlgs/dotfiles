@@ -120,6 +120,11 @@ keys.extend(
             "Print",
             lazy.spawn("sh -c 'maim -u | xclip -selection clipboard -t image/png'"),
         ),
+        Key(
+            ["control"],
+            "Print",
+            lazy.spawn("sh -c 'maim -s | xclip -selection clipboard -t image/png'"),
+        ),
     ]
 )
 
