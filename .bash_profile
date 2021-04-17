@@ -10,6 +10,7 @@ export PYLINTHOME=~/.cache/pylint.d
 export npm_config_cache=~/.cache/node
 
 # clean up (config)
+export PYTHONSTARTUP=~/.config/python/pythonrc
 export COOKIECUTTER_CONFIG=~/.config/cookiecutter/config.yaml
 
 # expand PATH
