@@ -1,3 +1,9 @@
+"""
+At this time, all this does is set the interactive python history file
+to a new location; the default is ~/.python_history.
+see: <https://unix.stackexchange.com/q/121377>
+"""
+
 import os
 import sys
 
