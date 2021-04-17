@@ -1,0 +1,4 @@
+#!/bin/sh
+
+clear && echo
+curl -s wttr.in | head -n -1
