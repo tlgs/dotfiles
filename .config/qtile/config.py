@@ -188,23 +188,21 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(20),
+                widget.Spacer(16),
                 widget.GroupBox(
                     active=spaceduck.foreground,
                     block_highlight_text_color=spaceduck.background,
                     highlight_method="block",
                     inactive=spaceduck.white.normal,
                     this_current_screen_border=spaceduck.green.normal,
+                    urgent_border=spaceduck.red.normal,
                     use_mouse_wheel=False,
                 ),
                 widget.Spacer(),
-                widget.Clock(format="%H:%M"),
-                widget.Spacer(10),
-                widget.Clock(format="%b %d, %Y"),
-                # widget.Clock(format="%d/%m/%Y"),
-                widget.Spacer(),
                 widget.Systray(icon_size=24, padding=8),
-                widget.Spacer(80),
+                widget.Spacer(32),
+                widget.Clock(format="%H:%M" + " "*6 + "%b %d", foreground=spaceduck.white.bright),
+                widget.Spacer(16),
             ],
             size=32,
             background=spaceduck.background,
