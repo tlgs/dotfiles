@@ -201,7 +201,10 @@ screens = [
                 widget.Spacer(),
                 widget.Systray(icon_size=24, padding=8),
                 widget.Spacer(32),
-                widget.Clock(format="%H:%M" + " "*6 + "%b %d", foreground=spaceduck.white.bright),
+                widget.Clock(
+                    format="%H:%M" + " " * 6 + "%b %d",
+                    foreground=spaceduck.white.bright,
+                ),
                 widget.Spacer(16),
             ],
             size=32,
