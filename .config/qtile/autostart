@@ -9,7 +9,7 @@ xss-lock -- screenlock &
 
 # compositor & background
 picom &
-nitrogen --random --set-centered
+wallpaper-cycle &
 
 # notifications
 dunst &
@@ -20,6 +20,6 @@ udiskie &
 # system tray
 nm-applet &
 blueman-applet &
-cbatticon &
+cbatticon -r 3 -c 'systemctl hibernate' &
 volumeicon &
 redshift-gtk &

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+  nitrogen --random --set-centered
+  sleep "${1:-1200}"
+done
