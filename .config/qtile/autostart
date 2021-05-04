@@ -20,6 +20,6 @@ udiskie &
 # system tray
 nm-applet &
 blueman-applet &
-cbatticon -r 3 -c 'systemctl hibernate' &
+cbatticon -c "systemctl hibernate" -l 15 -r 3 &
 volumeicon &
 redshift-gtk &
