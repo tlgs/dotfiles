@@ -142,7 +142,7 @@ keys.extend(
 ############################
 #  Groups (& keybindings)  #
 ############################
-groups = [Group(x) for x in "12345"]
+groups = [Group(str(x)) for x in range(1, 10)]
 
 # switch workspaces
 keys.extend([Key([mod], "Tab", lazy.screen.next_group(skip_empty=True))])
@@ -192,6 +192,7 @@ screens = [
                 widget.GroupBox(
                     active=spaceduck.foreground,
                     block_highlight_text_color=spaceduck.background,
+                    hide_unused=True,
                     highlight_method="block",
                     inactive=spaceduck.white.normal,
                     this_current_screen_border=spaceduck.green.normal,
