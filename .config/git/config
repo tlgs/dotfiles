@@ -6,3 +6,4 @@
 
 [core]
 	editor = nvim
+	pager = "less -S"
