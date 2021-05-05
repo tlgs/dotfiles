@@ -1,9 +1,9 @@
 [user]
-	name = Tiago Seabra
-	email = tlgs@users.noreply.github.com
+	name = "Tiago Seabra"
+	email = "tlgs@users.noreply.github.com"
 [init]
-	defaultBranch = master
+	defaultBranch = "master"
 
 [core]
-	editor = nvim
+	editor = "nvim"
 	pager = "less -S"
