@@ -159,7 +159,7 @@ for x in groups:
 #         Layouts          #
 ############################
 layout_defaults = dict(
-    border_focus=spaceduck.foreground,
+    border_focus=spaceduck.magenta.normal,
     border_normal=spaceduck.background,
     border_width=3,
     margin=10,
@@ -208,8 +208,9 @@ screens = [
                 ),
                 widget.Spacer(16),
             ],
-            size=32,
+            size=48,
             background=spaceduck.background,
+            margin=[10, 10, 0, 10],
         ),
     ),
 ]
