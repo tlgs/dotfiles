@@ -132,6 +132,7 @@ keys.extend(
 keys.extend(
     [
         Key([mod], "Return", lazy.spawn("alacritty")),
+        Key([mod], "e", lazy.spawn("thunderbird")),
         Key([mod], "f", lazy.spawn("firefox")),
         Key([mod], "r", lazy.spawn("rofi -show drun")),
         Key([mod], "BackSpace", lazy.spawn("screenlock")),
@@ -189,22 +190,30 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(16),
+                widget.Image(filename="~/.config/qtile/arch.png"),
+                widget.Spacer(24),
                 widget.GroupBox(
                     active=spaceduck.foreground,
                     block_highlight_text_color=spaceduck.background,
                     hide_unused=True,
                     highlight_method="block",
                     inactive=spaceduck.white.normal,
-                    this_current_screen_border=spaceduck.green.normal,
+                    this_current_screen_border=spaceduck.blue.normal,
                     urgent_border=spaceduck.red.normal,
                     use_mouse_wheel=False,
+                ),
+                widget.Spacer(),
+                widget.CheckUpdates(
+                    colour_have_updates=spaceduck.foreground,
+                    custom_command="paru -Qu",
+                    display_format=" {updates}",
+                    update_interval=3600,
                 ),
                 widget.Spacer(),
                 widget.Systray(icon_size=24, padding=8),
                 widget.Spacer(32),
                 widget.Clock(
                     format="%H:%M" + " " * 6 + "%b %d",
-                    foreground=spaceduck.white.bright,
                 ),
                 widget.Spacer(16),
             ],
