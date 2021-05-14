@@ -107,14 +107,31 @@ keys.extend(
     ]
 )
 
-# Fn keys
+# multimedia
 keys.extend(
     [
         Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
         Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 5%+")),
         Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 5%-")),
+        Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+        Key([], "XF86AudioPause", lazy.spawn("playerctl pause")),
+        Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
+        Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+        Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    ]
+)
+
+# brightness
+keys.extend(
+    [
         Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10")),
         Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10")),
+    ]
+)
+
+# print
+keys.extend(
+    [
         Key(
             [],
             "Print",
@@ -128,11 +145,11 @@ keys.extend(
     ]
 )
 
-# launch applications
+# applications
 keys.extend(
     [
         Key([mod], "Return", lazy.spawn("alacritty")),
-        Key([mod], "e", lazy.spawn("thunderbird")),
+        Key([mod], "t", lazy.spawn("thunderbird")),
         Key([mod], "f", lazy.spawn("firefox")),
         Key([mod], "r", lazy.spawn("rofi -show drun")),
         Key([mod], "BackSpace", lazy.spawn("screenlock")),
@@ -206,8 +223,8 @@ screens = [
                 widget.CheckUpdates(
                     colour_have_updates=spaceduck.foreground,
                     custom_command="paru -Qu",
-                    display_format=" {updates}",
-                    update_interval=3600,
+                    display_format="  {updates}",
+                    update_interval=1200,
                 ),
                 widget.Spacer(),
                 widget.Systray(icon_size=24, padding=8),
