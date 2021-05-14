@@ -20,9 +20,9 @@
     stack_duplicates = yes
     hide_duplicate_count = yes
 
-    icon_position = off
-    max_icon_size = 80
-    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
+    max_icon_size = 24
+    icon_path = /usr/share/icons/kora/24/actions/:/usr/share/icons/kora/24/animations/:/usr/share/icons/kora/24/apps/:/usr/share/icons/kora/24/categories/:/usr/share/icons/kora/24/devices/:/usr/share/icons/kora/24/emblems/:/usr/share/icons/kora/24/emotes/:/usr/share/icons/kora/24/mimetypes/:/usr/share/icons/kora/24/panel/:/usr/share/icons/kora/24/places/:/usr/share/icons/kora/24/status/
+
 
 [urgency_low]
     frame_color = "#00a3cc"
