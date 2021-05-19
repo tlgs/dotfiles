@@ -9,7 +9,8 @@ xss-lock -- screenlock &
 
 # compositor & background
 picom &
-wallpaper-cycle &
+nitrogen --restore
+unclutter &
 
 # notifications
 dunst &
