@@ -177,7 +177,7 @@ for x in groups:
 #         Layouts          #
 ############################
 layout_defaults = dict(
-    border_focus=spaceduck.magenta.normal,
+    border_focus=spaceduck.foreground,
     border_normal=spaceduck.background,
     border_width=3,
     margin=10,
@@ -221,14 +221,15 @@ screens = [
                 ),
                 widget.Spacer(),
                 widget.CheckUpdates(
-                    colour_have_updates=spaceduck.foreground,
+                    colour_have_updates=spaceduck.white.normal,
                     custom_command="paru -Qu",
-                    display_format="  {updates}",
+                    display_format="",
+                    font="Font Awesome 5 Free",
                     update_interval=1200,
                 ),
                 widget.Spacer(),
                 widget.Systray(icon_size=24, padding=8),
-                widget.Spacer(32),
+                widget.Spacer(24),
                 widget.Clock(
                     format="%H:%M" + " " * 6 + "%b %d",
                 ),
