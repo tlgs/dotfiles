@@ -160,7 +160,12 @@ keys.extend(
 ############################
 #  Groups (& keybindings)  #
 ############################
-groups = [Group(str(x)) for x in range(1, 10)]
+# groups = [Group(str(i)) for i in range(1, 10)] + [Group("0")]
+# groups = [Group(str(i), label=x) for i, x in enumerate("ⅠⅡⅢⅣⅤⅥⅦⅧⅨ", 1)] + [Group("0", label="Ⅹ")]
+# groups = [Group(str(i), label=x) for i, x in enumerate("𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡", 1)] + [Group("0", label="𝟘")]
+groups = [Group(str(i), label=x) for i, x in enumerate("αβγδεζηθι", 1)] + [
+    Group("0", label="κ")
+]
 
 # switch workspaces
 keys.extend([Key([mod], "Tab", lazy.screen.next_group(skip_empty=True))])
@@ -214,7 +219,6 @@ screens = [
                     block_highlight_text_color=spaceduck.background,
                     hide_unused=True,
                     highlight_method="block",
-                    inactive=spaceduck.white.normal,
                     this_current_screen_border=spaceduck.blue.normal,
                     urgent_border=spaceduck.red.normal,
                     use_mouse_wheel=False,
