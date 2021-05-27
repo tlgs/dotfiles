@@ -12,6 +12,8 @@ clr='#00000000'
 i3lock \
   --blur=5 \
   --indicator \
+  --pass-media-keys \
+  --pass-volume-keys \
   --insidevercolor=$clr \
   --insidewrongcolor=$clr \
   --insidecolor=$clr \
