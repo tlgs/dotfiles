@@ -14,20 +14,20 @@ i3lock \
   --indicator \
   --pass-media-keys \
   --pass-volume-keys \
-  --insidevercolor=$clr \
-  --insidewrongcolor=$clr \
-  --insidecolor=$clr \
-  --ringvercolor=$green \
-  --ringwrongcolor=$red \
-  --ringcolor=$blue \
+  --insidever-color=$clr \
+  --insidewrong-color=$clr \
+  --inside-color=$clr \
+  --ringver-color=$green \
+  --ringwrong-color=$red \
+  --ring-color=$blue \
   --line-uses-inside \
-  --keyhlcolor=$foreground \
-  --bshlcolor=$background \
-  --separatorcolor=$clr \
-  --veriftext='' \
-  --wrongtext='' \
-  --noinputtext='' \
-  --locktext='' \
-  --lockfailedtext='' \
+  --keyhl-color=$foreground \
+  --bshl-color=$background \
+  --separator-color=$clr \
+  --verif-text='' \
+  --wrong-text='' \
+  --noinput-text='' \
+  --lock-text='' \
+  --lockfailed-text='' \
   --radius 150 \
   --ring-width 50
