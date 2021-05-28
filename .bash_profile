@@ -12,11 +12,15 @@ export npm_config_cache=~/.cache/node
 # clean up (config)
 export PYTHONSTARTUP=~/.config/python/pythonrc
 export COOKIECUTTER_CONFIG=~/.config/cookiecutter/config.yaml
+export STARSHIP_CONFIG=~/.config/starship/config.toml
 
 # expand PATH
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$HOME/.local/bin
-PATH=$PATH:$HOME/Applications
+PATH=$PATH:$HOME/applications
+
+# source secrets
+[[ -f ~/.bash_secrets ]] && . ~/.bash_secrets
 
 # source bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
