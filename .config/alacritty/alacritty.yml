@@ -16,3 +16,5 @@ cursor:
   style:
     shape: 'Beam'
     blinking: 'Always'
+
+  unfocused_hollow: false
