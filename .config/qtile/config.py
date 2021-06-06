@@ -184,7 +184,7 @@ for x in groups:
 layout_defaults = dict(
     border_focus=spaceduck.foreground,
     border_normal=spaceduck.background,
-    border_width=3,
+    border_width=2,
     margin=10,
     single_border_width=0,
     single_margin=10,
@@ -242,6 +242,7 @@ screens = [
             size=48,
             background=spaceduck.background,
             margin=[10, 10, 0, 10],
+            opacity=0.75,
         ),
     ),
 ]
