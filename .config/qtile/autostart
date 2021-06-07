@@ -22,5 +22,4 @@ udiskie &
 nm-applet &
 blueman-applet &
 cbatticon -c "systemctl hibernate" -l 15 -r 3 &
-volumeicon &
 redshift-gtk &

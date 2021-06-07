@@ -1,9 +1,9 @@
 [global]
     font = Sans-serif 12
 
-    geometry = "300x50-15+49"
+    geometry = "300x50-20+78"
+    progress_bar_frame_width = 0
     shrink = no
-    transparency = 5
     show_indicators = no
    
     format = "<b>%s</b>\n%b"
@@ -12,7 +12,7 @@
     separator_color = "#0f111b"
     padding = 6
     horizontal_padding = 6
-    frame_width = 4
+    frame_width = 2
 
     alignment = center
     bounce_freq = 0
@@ -21,24 +21,25 @@
     hide_duplicate_count = yes
 
     max_icon_size = 24
-    icon_path = /usr/share/icons/kora/24/actions/:/usr/share/icons/kora/24/animations/:/usr/share/icons/kora/24/apps/:/usr/share/icons/kora/24/categories/:/usr/share/icons/kora/24/devices/:/usr/share/icons/kora/24/emblems/:/usr/share/icons/kora/24/emotes/:/usr/share/icons/kora/24/mimetypes/:/usr/share/icons/kora/24/panel/:/usr/share/icons/kora/24/places/:/usr/share/icons/kora/24/status/
+    icon_path = /usr/share/icons/kora/actions/16/
 
+    corner_radius = 10
 
 [urgency_low]
     frame_color = "#00a3cc"
-    background = "#0f111b"
+    background = "#0f111bbb"
     foreground = "#00a3cc"
     timeout = 4
 
 [urgency_normal]
     frame_color = "#5ccc96"
-    background = "#0f111b"
+    background = "#0f111bbb"
     foreground = "#5ccc96"
     timeout = 6
 
 [urgency_critical]
     frame_color = "#e33400"
-    background = "#0f111b"
+    background = "#0f111bbb"
     foreground = "#e33400"
     timeout = 8
 

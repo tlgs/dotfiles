@@ -110,9 +110,9 @@ keys.extend(
 # multimedia
 keys.extend(
     [
-        Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
-        Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 5%+")),
-        Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 5%-")),
+        Key([], "XF86AudioMute", lazy.spawn("volume toggle")),
+        Key([], "XF86AudioRaiseVolume", lazy.spawn("volume up")),
+        Key([], "XF86AudioLowerVolume", lazy.spawn("volume down")),
         Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
         Key([], "XF86AudioPause", lazy.spawn("playerctl pause")),
         Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
