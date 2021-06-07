@@ -1,0 +1,39 @@
+#!/bin/sh
+
+n=$(amixer get Master | tail -1 | cut -d ' ' -f 7 | sed 's/[^0-9]*//g')
+
+case $1 in
+  up)
+    [ "$n" -eq 100 ] && exit 0
+    amixer set Master 5%+ > /dev/null
+    n=$(( n + 5 ))
+    ;;
+  down)
+    [ "$n" -eq 0 ] && exit 0
+    amixer set Master 5%- > /dev/null
+    n=$(( n - 5 ))
+    ;;
+  toggle)
+    amixer set Master toggle > /dev/null
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+
+status=$(amixer get Master | tail -1 | cut -d ' ' -f 8)
+if [ "$n" -eq 0 ] || [ "$status" = '[off]' ]; then
+  icon='audio-volume-muted'
+else
+  icon='audio-volume-high'
+fi
+
+dunstify \
+  -r 99 \
+  -i "$icon" \
+  -h int:value:"$n" \
+  -h string:fgcolor:"#ecf0c1" \
+  -h string:frcolor:"#0f111bbb" \
+  "{ $n }"
+
+[ "$1" != 'toggle' ] && canberra-gtk-play -i audio-volume-change
