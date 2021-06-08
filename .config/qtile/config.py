@@ -160,11 +160,8 @@ keys.extend(
 ############################
 #  Groups (& keybindings)  #
 ############################
-# groups = [Group(str(i)) for i in range(1, 10)] + [Group("0")]
-# groups = [Group(str(i), label=x) for i, x in enumerate("ⅠⅡⅢⅣⅤⅥⅦⅧⅨ", 1)] + [Group("0", label="Ⅹ")]
-# groups = [Group(str(i), label=x) for i, x in enumerate("𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡", 1)] + [Group("0", label="𝟘")]
-groups = [Group(str(i), label=x) for i, x in enumerate("αβγδεζηθι", 1)] + [
-    Group("0", label="κ")
+groups = [Group(str(i), label=x) for i, x in enumerate("abcdefgij", 1)] + [
+    Group("0", label="h")
 ]
 
 # switch workspaces
@@ -193,7 +190,6 @@ layout_defaults = dict(
 layouts = [
     layout.MonadTall(**layout_defaults),
     layout.MonadWide(**layout_defaults),
-    layout.Max(**layout_defaults),
 ]
 
 
@@ -212,13 +208,14 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(16),
-                widget.Image(filename="~/.config/qtile/arch.png"),
+                widget.Image(filename="~/.config/qtile/bluekarp.png"),
                 widget.Spacer(24),
                 widget.GroupBox(
                     active=spaceduck.foreground,
                     block_highlight_text_color=spaceduck.background,
-                    hide_unused=True,
-                    highlight_method="block",
+                    font="Unown",
+                    fontsize=32,
+                    highlight_method="text",
                     this_current_screen_border=spaceduck.blue.normal,
                     urgent_border=spaceduck.red.normal,
                     use_mouse_wheel=False,
