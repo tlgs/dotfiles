@@ -1,27 +1,22 @@
 [global]
-    font = Sans-serif 12
-
-    geometry = "300x50-20+78"
+    geometry = "310x100-30+88"
     progress_bar_frame_width = 0
-    shrink = no
-    show_indicators = no
-   
-    format = "<b>%s</b>\n%b"
-
+    shrink = true
     separator_height = 4
-    separator_color = "#0f111b"
     padding = 6
     horizontal_padding = 6
     frame_width = 2
+    separator_color = "#0f111bbb"
 
-    alignment = center
-    bounce_freq = 0
+    font = Sans-serif 12
+    format = "<b>%s</b>\n%b"
+    word_wrap = true
+    stack_duplicates = true
+    hide_duplicate_count = true
 
-    stack_duplicates = yes
-    hide_duplicate_count = yes
-
+    icon_position = left
     max_icon_size = 24
-    icon_path = /usr/share/icons/kora/actions/16/
+    icon_path = /usr/share/icons/kora/actions/16/:/usr/share/icons/kora/panel/16/
 
     corner_radius = 10
 
@@ -29,18 +24,21 @@
     frame_color = "#00a3cc"
     background = "#0f111bbb"
     foreground = "#00a3cc"
+    highlight = "#686f9a"
     timeout = 4
 
 [urgency_normal]
     frame_color = "#5ccc96"
     background = "#0f111bbb"
     foreground = "#5ccc96"
+    highlight = "#686f9a"
     timeout = 6
 
 [urgency_critical]
     frame_color = "#e33400"
     background = "#0f111bbb"
     foreground = "#e33400"
+    highlight = "#686f9a"
     timeout = 8
 
 # vim: ft=cfg
