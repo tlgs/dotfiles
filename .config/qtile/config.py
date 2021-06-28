@@ -160,9 +160,7 @@ keys.extend(
 ############################
 #  Groups (& keybindings)  #
 ############################
-groups = [Group(str(i), label=x) for i, x in enumerate("abcdefgij", 1)] + [
-    Group("0", label="h")
-]
+groups = [Group(i) for i in "1234567890"]
 
 # switch workspaces
 keys.extend([Key([mod], "Tab", lazy.screen.next_group(skip_empty=True))])
@@ -179,9 +177,9 @@ for x in groups:
 #         Layouts          #
 ############################
 layout_defaults = dict(
-    border_focus=spaceduck.foreground,
+    border_focus=spaceduck.magenta.normal,
     border_normal=spaceduck.background,
-    border_width=2,
+    border_width=3,
     margin=10,
     single_border_width=0,
     single_margin=10,
@@ -197,8 +195,8 @@ layouts = [
 #       Bar & Widgets      #
 ############################
 widget_defaults = dict(
-    font="sans-serif bold",
-    fontsize=16,
+    font="sans-serif semibold",
+    fontsize=14,
     foreground=spaceduck.foreground,
     padding=6,
 )
@@ -207,38 +205,22 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(16),
-                widget.Image(filename="~/.config/qtile/bluekarp.png"),
-                widget.Spacer(24),
-                widget.GroupBox(
-                    active=spaceduck.foreground,
-                    block_highlight_text_color=spaceduck.background,
-                    font="Unown",
-                    fontsize=32,
-                    highlight_method="text",
-                    this_current_screen_border=spaceduck.blue.normal,
-                    urgent_border=spaceduck.red.normal,
-                    use_mouse_wheel=False,
-                ),
-                widget.Spacer(),
-                widget.CheckUpdates(
-                    colour_have_updates=spaceduck.white.normal,
-                    custom_command="paru -Qu",
-                    display_format="",
-                    font="Font Awesome 5 Free",
-                    update_interval=1200,
-                ),
-                widget.Spacer(),
-                widget.Systray(icon_size=24, padding=8),
-                widget.Spacer(24),
+                widget.Spacer(bar.STRETCH),
+                widget.Systray(icon_size=16, padding=10),
+                widget.Spacer(12),
+                widget.Sep(size_percent=69),
+                widget.Spacer(12),
                 widget.Clock(
-                    format="%H:%M" + " " * 6 + "%b %d",
+                    format="%H:%M" + " " * 4 + "%b %d",
                 ),
-                widget.Spacer(16),
+                widget.Spacer(12),
+                widget.Sep(size_percent=69),
+                widget.Spacer(12),
+                widget.AGroupBox(border=spaceduck.background),
             ],
             size=48,
             background=spaceduck.background,
-            margin=[10, 10, 0, 10],
+            margin=[10, 10, 0, 1600],
             opacity=0.75,
         ),
     ),
