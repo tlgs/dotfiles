@@ -5,7 +5,7 @@ setxkbmap -layout pt
 
 # DPMS & session lock
 xset dpms 240 0 0
-xss-lock -- screenlock &
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- screenlock &
 
 # display
 picom &

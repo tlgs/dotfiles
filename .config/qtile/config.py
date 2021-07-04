@@ -152,7 +152,7 @@ keys.extend(
         Key([mod], "t", lazy.spawn("thunderbird")),
         Key([mod], "f", lazy.spawn("firefox")),
         Key([mod], "r", lazy.spawn("rofi -show drun")),
-        Key([mod], "BackSpace", lazy.spawn("screenlock")),
+        Key([mod], "BackSpace", lazy.spawn("xset s activate")),
     ]
 )
 

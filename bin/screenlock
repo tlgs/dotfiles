@@ -1,33 +1,9 @@
 #!/bin/sh
 
-# some Spaceduck colors
-background='#0f111baa'
-foreground='#ecf0c1aa'
-red='#e33400aa'
-green='#5ccc96aa'
-blue='#00a3ccaa'
 
-clr='#00000000'
-
-i3lock \
-  --blur=5 \
-  --indicator \
-  --pass-media-keys \
-  --pass-volume-keys \
-  --insidever-color=$clr \
-  --insidewrong-color=$clr \
-  --inside-color=$clr \
-  --ringver-color=$green \
-  --ringwrong-color=$red \
-  --ring-color=$blue \
-  --line-uses-inside \
-  --keyhl-color=$foreground \
-  --bshl-color=$background \
-  --separator-color=$clr \
-  --verif-text='' \
-  --wrong-text='' \
-  --noinput-text='' \
-  --lock-text='' \
-  --lockfailed-text='' \
-  --radius 150 \
-  --ring-width 50
+env \
+  XSECURELOCK_COMPOSITE_OBSCURER=0 \
+  XSECURELOCK_SHOW_DATETIME=1 \
+  XSECURELOCK_SHOW_HOSTNAME=0 \
+  XSECURELOCK_SHOW_USERNAME=0 \
+  xsecurelock
