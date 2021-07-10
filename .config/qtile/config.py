@@ -43,12 +43,6 @@ spaceduck = Colorscheme(
 
 
 ############################
-# General config variables #
-############################
-wmname = "Qtile"
-
-
-############################
 #          Hooks           #
 ############################
 @hook.subscribe.startup_once
@@ -77,10 +71,8 @@ keys.extend(
 # change window size / behaviour
 keys.extend(
     [
-        Key([mod, "control"], "h", lazy.layout.shrink()),
-        Key([mod, "control"], "j", lazy.layout.shrink()),
-        Key([mod, "control"], "k", lazy.layout.grow()),
-        Key([mod, "control"], "l", lazy.layout.grow()),
+        Key([mod, "control"], "j", lazy.layout.grow()),
+        Key([mod, "control"], "k", lazy.layout.shrink()),
         Key([mod, "control"], "n", lazy.layout.reset()),
         Key([mod, "control"], "m", lazy.layout.maximize()),
         Key([mod, "control"], "f", lazy.window.toggle_floating()),
@@ -90,10 +82,10 @@ keys.extend(
 # change window position
 keys.extend(
     [
-        Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
+        Key([mod, "shift"], "h", lazy.layout.swap_left()),
         Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
         Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
-        Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
+        Key([mod, "shift"], "l", lazy.layout.swap_right()),
     ]
 )
 
@@ -187,7 +179,6 @@ layout_defaults = dict(
 
 layouts = [
     layout.MonadTall(**layout_defaults),
-    layout.MonadWide(**layout_defaults),
 ]
 
 
@@ -197,7 +188,7 @@ layouts = [
 widget_defaults = dict(
     font="sans-serif semibold",
     fontsize=14,
-    foreground=spaceduck.foreground,
+    foreground=spaceduck.white.normal,
     padding=6,
 )
 
@@ -205,6 +196,10 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Spacer(12),
+                widget.AGroupBox(border=spaceduck.background),
+                widget.Spacer(12),
+                widget.WindowName(format="{name}"),
                 widget.Spacer(bar.STRETCH),
                 widget.Systray(icon_size=16, padding=10),
                 widget.Spacer(12),
@@ -214,14 +209,16 @@ screens = [
                     format="%H:%M" + " " * 4 + "%b %d",
                 ),
                 widget.Spacer(12),
-                widget.Sep(size_percent=69),
-                widget.Spacer(12),
-                widget.AGroupBox(border=spaceduck.background),
             ],
-            size=48,
+            size=24,
             background=spaceduck.background,
-            margin=[10, 10, 0, 1600],
-            opacity=0.75,
         ),
     ),
 ]
+
+############################
+# General config variables #
+############################
+floating_layout = layout.Floating(**layout_defaults)
+follow_mouse_focus = False
+wmname = "Qtile"
