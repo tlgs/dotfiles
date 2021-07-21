@@ -18,6 +18,7 @@ export STARSHIP_CONFIG=~/.config/starship/config.toml
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/applications
+PATH=$PATH:$HOME/go/bin
 
 # source secrets
 [[ -f ~/.bash_secrets ]] && . ~/.bash_secrets
