@@ -3,11 +3,12 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias vim='nvim'
+alias ls='ls --color=auto'
+alias ssh='TERM=xterm-256color ssh'
 
-# media
+alias ranger='ranger --choosedir=$HOME/.ranger; cd "$(cat $HOME/.ranger)"; rm $HOME/.ranger'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias ytdl='youtube-dl -x --audio-format m4a --add-metadata'
 
 
