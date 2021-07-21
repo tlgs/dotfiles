@@ -1,54 +1,14 @@
 import os
 import subprocess
-from typing import NamedTuple, Optional
 
 from libqtile import bar, hook, layout, widget
 from libqtile.config import Group, Key, Screen
 from libqtile.lazy import lazy
 
-
-############################
-#          Utils           #
-############################
-class Color(NamedTuple):
-    normal: str
-    bright: Optional[str] = None
+import colors
 
 
-class Colorscheme(NamedTuple):
-    background: str
-    foreground: str
-    black: Color
-    red: Color
-    green: Color
-    yellow: Color
-    blue: Color
-    magenta: Color
-    cyan: Color
-    white: Color
-
-
-spaceduck = Colorscheme(
-    "#0f111b",
-    "#ecf0c1",
-    Color("#000000", "#686f9a"),
-    Color("#e33400", "#e33400"),
-    Color("#5ccc96", "#5ccc96"),
-    Color("#b3a1e6", "#b3a1e6"),
-    Color("#00a3cc", "#00a3cc"),
-    Color("#f2ce00", "#f2ce00"),
-    Color("#7a5ccc", "#7a5ccc"),
-    Color("#686f9a", "#f0f1ce"),
-)
-
-
-############################
-#          Hooks           #
-############################
-@hook.subscribe.startup_once
-def autostart():
-    script_path = os.path.expanduser("~/.config/qtile/autostart")
-    subprocess.call([script_path])
+color_scheme = colors.synthwave
 
 
 ############################
@@ -143,7 +103,7 @@ keys.extend(
         Key([mod], "Return", lazy.spawn("alacritty")),
         Key([mod], "t", lazy.spawn("thunderbird")),
         Key([mod], "f", lazy.spawn("firefox")),
-        Key([mod], "r", lazy.spawn("rofi -show drun")),
+        Key([mod], "r", lazy.spawn("rofi -show drun -modi drun,window")),
         Key([mod], "BackSpace", lazy.spawn("xset s activate")),
     ]
 )
@@ -169,9 +129,9 @@ for x in groups:
 #         Layouts          #
 ############################
 layout_defaults = dict(
-    border_focus=spaceduck.magenta.normal,
-    border_normal=spaceduck.background,
-    border_width=3,
+    border_focus=color_scheme.magenta.normal,
+    border_normal=color_scheme.background,
+    border_width=2,
     margin=10,
     single_border_width=0,
     single_margin=10,
@@ -179,6 +139,7 @@ layout_defaults = dict(
 
 layouts = [
     layout.MonadTall(**layout_defaults),
+    layout.MonadWide(**layout_defaults),
 ]
 
 
@@ -186,9 +147,9 @@ layouts = [
 #       Bar & Widgets      #
 ############################
 widget_defaults = dict(
-    font="sans-serif semibold",
+    font="sans semibold",
     fontsize=14,
-    foreground=spaceduck.white.normal,
+    foreground=color_scheme.foreground,
     padding=6,
 )
 
@@ -197,7 +158,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(12),
-                widget.AGroupBox(border=spaceduck.background),
+                widget.AGroupBox(border=color_scheme.background),
                 widget.Spacer(12),
                 widget.WindowName(format="{name}"),
                 widget.Spacer(bar.STRETCH),
@@ -211,7 +172,7 @@ screens = [
                 widget.Spacer(12),
             ],
             size=24,
-            background=spaceduck.background,
+            background=color_scheme.background,
         ),
     ),
 ]
@@ -222,3 +183,12 @@ screens = [
 floating_layout = layout.Floating(**layout_defaults)
 follow_mouse_focus = False
 wmname = "Qtile"
+
+
+############################
+#          Hooks           #
+############################
+@hook.subscribe.startup_once
+def _():
+    script_path = os.path.expanduser("~/.config/qtile/autostart")
+    subprocess.call([script_path])
