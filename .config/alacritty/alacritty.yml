@@ -1,5 +1,5 @@
 import:
-  - '~/.config/alacritty/spaceduck.yml'
+  - '~/.config/alacritty/themes/synthwave.yml'
 
 env:
   WINIT_X11_SCALE_FACTOR: '1.0'
