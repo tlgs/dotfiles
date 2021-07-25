@@ -32,7 +32,7 @@ dunstify \
   -r 99 \
   -i "$icon" \
   -h int:value:"$n" \
-  -h string:frcolor:"#686f9a" \
+  -h string:frcolor:"#ffffff" \
   ''
 
 [ "$1" != 'toggle' ] && canberra-gtk-play -i audio-volume-change
