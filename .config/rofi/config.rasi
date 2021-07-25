@@ -8,7 +8,7 @@
 configuration {
     lines:                  10;
     columns:                1;
-    font:                   "mono semibold 13";
+    font:                   "mono 13";
     bw:                     0;
     location:               0;
     padding:                0;
@@ -164,9 +164,10 @@ button {
 
 button selected {
     text-color:    @fg;
-    border:        3px;
     border-radius: 20px;
     border-color:  @ac;
+
+    border:        0px;
 }
 
 scrollbar {

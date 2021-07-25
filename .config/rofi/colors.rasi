@@ -1,9 +1,10 @@
 * {
   al:      #00000000;
-  ac:      #03edf9ff;
+  ac:      #ff7edbff;
 
   bg:      #262335ff;
   fg:      #ffffffff;
+
   red:     #fe4450ff;
   green:   #72f1b8ff;
   yellow:  #fede5dff;
