@@ -22,6 +22,3 @@ colors:
     magenta: '#ff7edb'
     cyan:    '#03edf9'
     white:   '#ffffff'
-
-  cursor:
-    cursor: '#03edf9'
