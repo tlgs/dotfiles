@@ -105,6 +105,7 @@ keys.extend(
         Key([mod], "f", lazy.spawn("firefox")),
         Key([mod], "r", lazy.spawn("rofi -show drun -modi drun,window")),
         Key([mod], "BackSpace", lazy.spawn("xset s activate")),
+        Key([mod], "Escape", lazy.function(lambda q: q.cmd_hide_show_bar())),
     ]
 )
 
@@ -129,10 +130,12 @@ for x in groups:
 #         Layouts          #
 ############################
 layout_defaults = dict(
-    border_focus=color_scheme.magenta.normal,
+    border_focus=color_scheme.white.normal,
     border_normal=color_scheme.background,
-    border_width=2,
+    border_width=1,
     margin=10,
+    max_ratio=0.85,
+    min_ratio=0.15,
     single_border_width=0,
     single_margin=10,
 )
@@ -184,9 +187,8 @@ floating_layout = layout.Floating(**layout_defaults)
 follow_mouse_focus = False
 wmname = "Qtile"
 
-
 ############################
-#          Hooks           #
+#           Hooks          #
 ############################
 @hook.subscribe.startup_once
 def _():
