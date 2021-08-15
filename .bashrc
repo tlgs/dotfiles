@@ -8,7 +8,7 @@ alias ls='ls --color=auto'
 alias ssh='TERM=xterm-256color ssh'
 
 alias ranger='ranger --choosedir=$HOME/.ranger; cd "$(cat $HOME/.ranger)"; rm $HOME/.ranger'
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias ytdl='youtube-dl -x --audio-format m4a --add-metadata'
 
 
