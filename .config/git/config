@@ -3,7 +3,6 @@
 	email = "tlgs@users.noreply.github.com"
 [init]
 	defaultBranch = "master"
-
 [core]
 	editor = "nvim"
 	pager = "less -S"
