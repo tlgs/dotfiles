@@ -1,4 +1,7 @@
 {
     "window.menuBarVisibility": "toggle",
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "files.insertFinalNewline": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
 }
