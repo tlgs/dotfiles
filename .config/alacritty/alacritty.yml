@@ -6,10 +6,11 @@ window:
     x: 10
     y: 10
 
-  # decorations: none
-
 font:
-  size: 13
+  normal:
+    family: 'JetBrains Mono'
+
+  size: 12
 
 cursor:
   style:
