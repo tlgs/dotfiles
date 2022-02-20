@@ -6,22 +6,21 @@ export BROWSER=firefox
 
 # clean up (cache)
 export LESSHISTFILE=/dev/null
-export PYLINTHOME=~/.cache/pylint.d
-export npm_config_cache=~/.cache/node
+export PYLINTHOME=$HOME/.cache/pylint.d
+export npm_config_cache=$HOME/.cache/node
 
 # clean up (config)
-export PYTHONSTARTUP=~/.config/python/pythonrc
-export COOKIECUTTER_CONFIG=~/.config/cookiecutter/config.yaml
-export STARSHIP_CONFIG=~/.config/starship/config.toml
+export PYTHONSTARTUP=$HOME/.config/python/pythonrc
+export COOKIECUTTER_CONFIG=$HOME/.config/cookiecutter/config.yaml
+export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
+
+# clean up (local)
+export GOPATH=$HOME/.local/go
 
 # expand PATH
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$HOME/.local/bin
-PATH=$PATH:$HOME/applications
-PATH=$PATH:$HOME/go/bin
-
-# source secrets
-[[ -f ~/.bash_secrets ]] && . ~/.bash_secrets
+PATH=$PATH:$HOME/.local/go/bin
 
 # source bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
