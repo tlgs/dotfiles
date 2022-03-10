@@ -4,6 +4,8 @@ export EDITOR=vim
 export TERM=alacritty
 export BROWSER=firefox
 
+export BAT_THEME='ansi'
+
 # clean up (cache)
 export LESSHISTFILE=/dev/null
 export PYLINTHOME=$HOME/.cache/pylint.d
