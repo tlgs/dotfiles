@@ -20,5 +20,10 @@ ytdl-playlist() {
     | xargs -I '{}' -P ${2:-5} youtube-dl -x --audio-format m4a --add-metadata 'https://youtube.com/watch?v={}'
 }
 
+clippy-tts() {
+  # requires `xclip`, `gtts-cli`, and `play` from the `sox` project
+  xclip -o -selection clipboard | gtts-cli - | play -t mp3 -
+}
+
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
