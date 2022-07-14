@@ -21,8 +21,7 @@ ytdl-playlist() {
 }
 
 clippy-tts() {
-  # requires `xclip`, `gtts-cli`, and `play` from the `sox` project
-  xclip -o -selection clipboard | gtts-cli - | play -t mp3 -
+  xclip -o -selection clipboard | festival --tts
 }
 
 eval "$(starship init bash)"
