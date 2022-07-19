@@ -7,13 +7,15 @@ export BROWSER=firefox
 export BAT_THEME='ansi'
 
 # clean up (cache)
+export npm_config_cache=$HOME/.cache/node
+export CARGO_HOME=$HOME/.cache/cargo
 export LESSHISTFILE=/dev/null
 export PYLINTHOME=$HOME/.cache/pylint.d
-export npm_config_cache=$HOME/.cache/node
+export SQLITE_HISTORY="$HOME/.cache/sqlite/history"
 
 # clean up (config)
-export PYTHONSTARTUP=$HOME/.config/python/pythonrc
 export COOKIECUTTER_CONFIG=$HOME/.config/cookiecutter/config.yaml
+export PYTHONSTARTUP=$HOME/.config/python/pythonrc
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 
 # clean up (local)
