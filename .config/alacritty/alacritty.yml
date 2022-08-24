@@ -2,6 +2,10 @@ import:
   - '~/.config/alacritty/colorscheme.yml'
 
 window:
+  dimensions:
+    columns: 90 
+    lines: 25
+
   padding:
     x: 10
     y: 10
