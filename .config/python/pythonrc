@@ -5,5 +5,3 @@ see: <https://unix.stackexchange.com/q/121377>
 import readline
 
 readline.write_history_file = lambda *x: None
-
-# vim: ft=python
