@@ -22,3 +22,10 @@ cursor:
     blinking: 'Always'
 
   unfocused_hollow: false
+
+bell:
+  command:
+    program: 'beep'
+
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
