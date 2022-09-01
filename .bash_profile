@@ -4,8 +4,6 @@ export EDITOR=vim
 export TERM=alacritty
 export BROWSER=firefox
 
-export BAT_THEME='ansi'
-
 # clean up (cache)
 export npm_config_cache=$HOME/.cache/node
 export CARGO_HOME=$HOME/.cache/cargo
@@ -20,6 +18,9 @@ export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 
 # clean up (local)
 export GOPATH=$HOME/.local/go
+
+# configuration
+export GOPROXY=direct
 
 # expand PATH
 PATH=$PATH:$HOME/bin
