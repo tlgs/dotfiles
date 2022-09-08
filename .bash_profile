@@ -17,7 +17,8 @@ export PYTHONSTARTUP=$HOME/.config/python/pythonrc
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 
 # clean up (local)
-export GOPATH=$HOME/.local/go
+export GOPATH=$HOME/.local/share/go
+export VAGRANT_HOME=$HOME/.local/share/vagrant
 
 # configuration
 export GOPROXY=direct
@@ -25,7 +26,7 @@ export GOPROXY=direct
 # expand PATH
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$HOME/.local/bin
-PATH=$PATH:$HOME/.local/go/bin
+PATH=$PATH:$GOPATH/bin
 
 # source bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
