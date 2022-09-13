@@ -12,7 +12,7 @@ window:
 
 font:
   normal:
-    family: 'JetBrains Mono'
+    family: 'monospace'
 
   size: 12
 
