@@ -25,7 +25,6 @@ export GOPROXY=direct
 
 # expand PATH
 PATH=$PATH:$HOME/bin
-PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$GOPATH/bin
 
 # source bashrc
