@@ -1,8 +1,7 @@
 #!/bin/bash
 
+# see <https://github.com/direnv/direnv/issues/73>
 export_alias() {                                                                                                       
-  # see <https://github.com/direnv/direnv/issues/73>
-
   local name=$1                                                                                                        
   shift                                                                                                                
   local alias_dir=$PWD/.direnv/aliases                                                                                 
@@ -12,8 +11,25 @@ export_alias() {
     PATH_add "$alias_dir"                                                                                              
   fi                                                                                                                   
                                                                                                                        
-  echo "#!/usr/bin/env -S bash -e" > "$target"
+  echo "#!/usr/bin/env bash" > "$target"
   echo "$@" >> "$target"                                                                                               
   chmod +x "$target"                                                                                                   
 }
 
+# see <https://github.com/direnv/direnv/issues/73>
+export_function() {
+  local name=$1
+  local alias_dir=$PWD/.direnv/aliases
+  local target="$alias_dir/$name"
+  mkdir -p "$alias_dir"
+  if ! [[ ":$PATH:" == *":$alias_dir:"* ]]; then
+    PATH_add "$alias_dir"
+  fi
+
+  if declare -f "$name" >/dev/null; then
+    echo "#!/usr/bin/env bash" > "$target"
+    declare -f "$name" >> "$target" 2>/dev/null
+    echo "$name" >> "$target"
+    chmod +x "$target"
+  fi
+}
