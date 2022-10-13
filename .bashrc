@@ -17,7 +17,7 @@ httpd() {
 
 ytdl-playlist() {
   youtube-dl --get-id "$1" \
-    | xargs -I '{}' -P ${2:-5} youtube-dl -x --audio-format m4a --add-metadata 'https://youtube.com/watch?v={}'
+    | xargs -I '{}' -P ${2:-5} youtube-dl -x --audio-format flac --add-metadata 'https://youtube.com/watch?v={}'
 }
 
 clippy-tts() {
