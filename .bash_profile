@@ -22,6 +22,7 @@ export VAGRANT_HOME=$HOME/.local/share/vagrant
 
 # configuration
 export GOPROXY=direct
+export GOSUMDB=off
 
 # expand PATH
 PATH=$PATH:$HOME/bin
