@@ -16,7 +16,7 @@ httpd() {
 }
 
 ytdl-playlist() {
-  options=(--no-progress -x --audio-format flac --add-metadata)
+  options=(--no-progress -x --audio-format flac --add-metadata --)
   youtube-dl --get-id "$1" | xargs -n 1 -P "${2:-5}" youtube-dl "${options[@]}"
 }
 
