@@ -1,2 +1,3 @@
 directory: ~/music
+from_scratch: yes
 plugins: fetchart
