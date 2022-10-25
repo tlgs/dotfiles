@@ -15,11 +15,6 @@ httpd() {
   python -m http.server "${1:-8001}"
 }
 
-ytdl-playlist() {
-  options=(--no-progress -x --audio-format flac --add-metadata --)
-  youtube-dl --get-id "$1" | xargs -n 1 -P "${2:-5}" youtube-dl "${options[@]}"
-}
-
 clippy-tts() {
   xclip -o -selection clipboard | festival --tts
 }
