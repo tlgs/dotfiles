@@ -1,17 +1,5 @@
 // Wrapper around youtube-dl to implement concurrent and _fault-tolerant_
 // download of music from an Youtube playlist.
-//
-// Makes use of the [worker pool](https://gobyexample.com/worker-pools) pattern, and
-// the control loop implements a simple state machine:
-//
-//     +---------+     +--------+     +---------+     +-----------+
-// --->| Pending +---->| Queued +---->| Running +---->| Succeeded |
-//     +---------+     +--------+     +----+----+     +-----------+
-//     	    ^                              |
-//     	    |                              |
-//     	    |          +--------+          |
-//     	    *----------+ Failed |<--------'
-//                     +--------+
 
 package main
 
@@ -25,7 +13,7 @@ import (
 	"time"
 )
 
-type Status int
+type Status uint8
 
 const (
 	StatusPending Status = iota
@@ -52,68 +40,66 @@ func (s Status) String() string {
 	}
 }
 
-type Job struct {
-	Id       string
-	Status   Status
-	Failures int
-	Tail     string
-}
-
-func draw(jobs []*Job, clear bool) {
-	if clear {
-		for range jobs {
-			fmt.Print("\x1b[A\x1b[K") // up one, clear line
-		}
-	}
-
-	for i, job := range jobs {
-		msg := []rune(job.Tail)
-
-		if len(msg) > 74 {
-			msg = append(msg[:71], '.', '.', '.')
-		}
-
-		fmt.Printf("%2d: %v %v\n", i+1, job.Status, string(msg))
-	}
-}
-
-type Result struct {
-	Id      string
+type View struct {
 	Status  Status
 	Message string
 }
 
-func worker(queue <-chan string, results chan<- Result) {
+func draw(views []*View, completed int, clear bool) {
+	if clear {
+		for i := 0; i < len(views)+1; i++ {
+			fmt.Print("\x1b[A\x1b[K") // up one, clear line
+		}
+	}
+
+	fmt.Printf("Completed: %v/%v\n", completed, len(views))
+
+	for _, job := range views {
+		msg := []rune(job.Message)
+		if len(msg) > 78 {
+			msg = append(msg[:77], '…')
+		}
+
+		fmt.Printf("%v %v\n", job.Status, string(msg))
+	}
+}
+
+type Update struct {
+	Id string
+	View
+}
+
+func worker(queue <-chan string, updates chan<- Update) {
 	for id := range queue {
 		cmd := exec.Command("youtube-dl", "--no-progress", "-x", "--audio-format", "flac", "--add-metadata", "--", id)
 
 		r, err := cmd.StdoutPipe()
 		if err != nil {
-			results <- Result{id, StatusFailed, err.Error()}
+			updates <- Update{id, View{StatusFailed, err.Error()}}
 			continue
 		}
 		cmd.Stderr = cmd.Stdout
 
 		err = cmd.Start()
 		if err != nil {
-			results <- Result{id, StatusFailed, err.Error()}
+			updates <- Update{id, View{StatusFailed, err.Error()}}
 			continue
 		}
 
-		results <- Result{id, StatusRunning, ""}
+		updates <- Update{id, View{StatusRunning, ""}}
 
 		scanner := bufio.NewScanner(r)
 		for scanner.Scan() {
-			results <- Result{id, StatusRunning, scanner.Text()}
+			updates <- Update{id, View{StatusRunning, scanner.Text()}}
 		}
 
 		err = cmd.Wait()
 		if err != nil {
-			results <- Result{id, StatusFailed, err.Error()}
+			updates <- Update{id, View{StatusFailed, err.Error()}}
 			continue
 		}
 
-		results <- Result{id, StatusSucceeded, ""}
+		updates <- Update{id, View{StatusSucceeded, ""}}
 	}
 }
 
@@ -150,53 +136,55 @@ func main() {
 
 	// launch workers
 	queue := make(chan string, len(tracks))
-	results := make(chan Result)
+	updates := make(chan Update)
 	for i := 0; i < *nJobs; i++ {
-		go worker(queue, results)
+		go worker(queue, updates)
 	}
 
 	// launch jobs and start status tracking
-	jobs := make([]*Job, len(tracks))
-	idx := make(map[string]int)
+	jobs := make(map[string]*View, len(tracks))
+	failures := make(map[string]int, len(tracks))
+	views := make([]*View, len(tracks))
 	for i, t := range tracks {
 		queue <- t
-
-		jobs[i] = &Job{Id: t, Status: StatusQueued}
-		idx[t] = i
+		jobs[t] = &View{StatusQueued, "…"}
+		failures[t] = 0
+		views[i] = jobs[t]
 	}
-	draw(jobs, false)
+	draw(views, 0, false)
 
 	// control loop
 	for completed := 0; completed < len(tracks); {
-		result := <-results
+		update := <-updates
+		id := update.Id
 
-		job := jobs[idx[result.Id]]
-		job.Status = result.Status
-
-		if result.Message != "" {
-			job.Tail = result.Message
+		job := jobs[id]
+		job.Status = update.Status
+		if update.Message != "" {
+			job.Message = update.Message
 		}
 
-		switch result.Status {
+		switch update.Status {
 		case StatusSucceeded:
 			completed++
 
 		case StatusFailed:
-			job.Failures++
-			if job.Failures > *nRetries {
+			failures[id]++
+			if failures[id] > *nRetries {
 				completed++
 				break
 			}
 
 			job.Status = StatusPending
-			go func() {
-				time.Sleep(time.Duration(*retryInterval) * time.Second)
-
-				queue <- result.Id
-				results <- Result{result.Id, StatusQueued, ""} // update job status
-			}()
+			time.AfterFunc(
+				time.Duration(*retryInterval)*time.Second,
+				func() {
+					queue <- id
+					updates <- Update{id, View{StatusQueued, ""}}
+				},
+			)
 		}
 
-		draw(jobs, true)
+		draw(views, completed, true)
 	}
 }
