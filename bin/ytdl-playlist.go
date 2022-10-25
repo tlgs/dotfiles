@@ -10,7 +10,7 @@
 //     	    ^                              |
 //     	    |                              |
 //     	    |          +--------+          |
-//     	     '---------+ Failed |<--------'
+//     	    *----------+ Failed |<--------'
 //                     +--------+
 
 package main
@@ -67,58 +67,53 @@ func draw(jobs []*Job, clear bool) {
 	}
 
 	for i, job := range jobs {
-		var msg string
-		if len(job.Tail) > 74 {
-			msg = job.Tail[:71] + "..."
-		} else {
-			msg = job.Tail
+		msg := []rune(job.Tail)
+
+		if len(msg) > 74 {
+			msg = append(msg[:71], '.', '.', '.')
 		}
 
-		fmt.Printf("%2d: %v %v\n", i+1, job.Status, msg)
+		fmt.Printf("%2d: %v %v\n", i+1, job.Status, string(msg))
 	}
 }
 
-type Log struct {
+type Result struct {
 	Id      string
+	Status  Status
 	Message string
 }
 
-type Result struct {
-	Id     string
-	Status Status
-}
-
-func worker(queue <-chan string, logs chan<- Log, results chan<- Result) {
+func worker(queue <-chan string, results chan<- Result) {
 	for id := range queue {
 		cmd := exec.Command("youtube-dl", "--no-progress", "-x", "--audio-format", "flac", "--add-metadata", "--", id)
 
 		r, err := cmd.StdoutPipe()
 		if err != nil {
-			results <- Result{id, StatusFailed}
+			results <- Result{id, StatusFailed, err.Error()}
 			continue
 		}
 		cmd.Stderr = cmd.Stdout
 
 		err = cmd.Start()
 		if err != nil {
-			results <- Result{id, StatusFailed}
+			results <- Result{id, StatusFailed, err.Error()}
 			continue
 		}
 
-		results <- Result{id, StatusRunning}
+		results <- Result{id, StatusRunning, ""}
 
 		scanner := bufio.NewScanner(r)
 		for scanner.Scan() {
-			logs <- Log{id, scanner.Text()}
+			results <- Result{id, StatusRunning, scanner.Text()}
 		}
 
 		err = cmd.Wait()
 		if err != nil {
-			results <- Result{id, StatusFailed}
+			results <- Result{id, StatusFailed, err.Error()}
 			continue
 		}
 
-		results <- Result{id, StatusSucceeded}
+		results <- Result{id, StatusSucceeded, ""}
 	}
 }
 
@@ -155,10 +150,9 @@ func main() {
 
 	// launch workers
 	queue := make(chan string, len(tracks))
-	logs := make(chan Log)
 	results := make(chan Result)
 	for i := 0; i < *nJobs; i++ {
-		go worker(queue, logs, results)
+		go worker(queue, results)
 	}
 
 	// launch jobs and start status tracking
@@ -174,34 +168,33 @@ func main() {
 
 	// control loop
 	for completed := 0; completed < len(tracks); {
-		select {
-		case log := <-logs:
-			job := jobs[idx[log.Id]]
-			job.Tail = log.Message
+		result := <-results
 
-		case result := <-results:
-			job := jobs[idx[result.Id]]
-			job.Status = result.Status
+		job := jobs[idx[result.Id]]
+		job.Status = result.Status
 
-			switch result.Status {
-			case StatusSucceeded:
+		if result.Message != "" {
+			job.Tail = result.Message
+		}
+
+		switch result.Status {
+		case StatusSucceeded:
+			completed++
+
+		case StatusFailed:
+			job.Failures++
+			if job.Failures > *nRetries {
 				completed++
-
-			case StatusFailed:
-				job.Failures++
-				if job.Failures > *nRetries {
-					completed++
-					break
-				}
-
-				job.Status = StatusPending
-				go func() {
-					time.Sleep(time.Duration(*retryInterval) * time.Second)
-
-					queue <- result.Id
-					results <- Result{result.Id, StatusQueued}
-				}()
+				break
 			}
+
+			job.Status = StatusPending
+			go func() {
+				time.Sleep(time.Duration(*retryInterval) * time.Second)
+
+				queue <- result.Id
+				results <- Result{result.Id, StatusQueued, ""} // update job status
+			}()
 		}
 
 		draw(jobs, true)
