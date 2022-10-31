@@ -1,10 +1,13 @@
 {
-    "telemetry.telemetryLevel": "off",
-    "window.menuBarVisibility": "toggle",
     "editor.detectIndentation": false,
-    "files.insertFinalNewline": true,
+    "[html][css][javascript][shellscript]": {
+        "editor.tabSize": 2
+    },
     "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "[javascript]": {
-        "editor.tabSize": 2,
-    }
+    "editor.fontSize": 16,
+    "files.insertFinalNewline": true,
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.fontSize": 16,
+    "window.menuBarVisibility": "toggle",
+    "redhat.telemetry.enabled": false
 }
