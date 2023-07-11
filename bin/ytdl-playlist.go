@@ -71,7 +71,7 @@ type Update struct {
 
 func worker(queue <-chan string, updates chan<- Update) {
 	for id := range queue {
-		cmd := exec.Command("youtube-dl", "--no-progress", "-x", "--audio-format", "flac", "--add-metadata", "--", id)
+		cmd := exec.Command("yt-dlp", "--no-progress", "-x", "--audio-format", "flac", "--add-metadata", "--", id)
 
 		r, err := cmd.StdoutPipe()
 		if err != nil {
@@ -119,7 +119,7 @@ func main() {
 	}
 
 	// get list of tracks to download
-	raw, err := exec.Command("youtube-dl", "--get-id", playlist).Output()
+	raw, err := exec.Command("yt-dlp", "--get-id", playlist).Output()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error: failed to retrieve individual track ids")
 
