@@ -5,6 +5,7 @@
 
 alias vim='nvim'
 alias ls='ls --color=auto'
+alias tree='tree --gitignore -I .git'
 alias ssh='TERM=xterm-256color ssh'
 
 alias goat='go-ascii-tool'
