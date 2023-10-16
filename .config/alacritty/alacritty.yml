@@ -24,4 +24,4 @@ cursor:
   unfocused_hollow: false
 
 key_bindings:
-  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
