@@ -1,14 +1,8 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "alt+shift+u",
-        "command": "editor.action.transformToUppercase",
-        "when": "editorTextFocus"
-     },
-     {
-        "key": "alt+shift+l",
-        "command": "editor.action.transformToLowercase",
-        "when": "editorTextFocus"
-     }
+        "key": "ctrl+alt+v",
+        "command": "toggleVim"
+    }
 ]
 
