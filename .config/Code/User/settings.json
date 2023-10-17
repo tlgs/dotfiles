@@ -1,6 +1,6 @@
 {
     "editor.detectIndentation": false,
-    "[html][css][javascript][shellscript]": {
+    "[css][html][java][javascript][shellscript]": {
         "editor.tabSize": 2
     },
     "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
