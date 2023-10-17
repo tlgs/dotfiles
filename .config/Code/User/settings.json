@@ -9,5 +9,6 @@
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.fontSize": 16,
     "window.menuBarVisibility": "toggle",
-    "redhat.telemetry.enabled": false
+    "redhat.telemetry.enabled": false,
+    "D2.previewLayout": "tala"
 }
