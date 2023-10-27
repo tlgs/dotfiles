@@ -1,5 +1,3 @@
-# shellcheck shell=bash
-
 export EDITOR=vim
 export TERM=alacritty
 export BROWSER=firefox
