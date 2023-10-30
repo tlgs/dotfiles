@@ -7,6 +7,7 @@ alias tree='tree --gitignore -I .git'
 alias ssh='TERM=xterm-256color ssh'
 
 alias goat='go-ascii-tool'
+alias compose='docker compose'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
