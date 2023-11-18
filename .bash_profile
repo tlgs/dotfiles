@@ -15,9 +15,11 @@ export PYTHONSTARTUP=$HOME/.config/python/pythonrc
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 export DOCKER_CONFIG=$HOME/.config/docker
 
+
 # clean up (local)
 export GOPATH=$HOME/.local/share/go
 export VAGRANT_HOME=$HOME/.local/share/vagrant
+export GNUPGHOME=$HOME/.local/share/gnupg
 
 # configuration
 export GOPROXY=direct
