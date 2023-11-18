@@ -13,6 +13,7 @@ export SQLITE_HISTORY="$HOME/.cache/sqlite/history"
 export COOKIECUTTER_CONFIG=$HOME/.config/cookiecutter/config.yaml
 export PYTHONSTARTUP=$HOME/.config/python/pythonrc
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
+export DOCKER_CONFIG=$HOME/.config/docker
 
 # clean up (local)
 export GOPATH=$HOME/.local/share/go
