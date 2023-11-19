@@ -8,6 +8,10 @@
     "files.insertFinalNewline": true,
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.fontSize": 16,
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.commandsToSkipShell": [
+	"-workbench.action.quickOpen"
+    ],
     "window.menuBarVisibility": "toggle",
     "redhat.telemetry.enabled": false,
     "D2.previewLayout": "tala"
