@@ -1,6 +1,8 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s globstar
+
 alias vim='nvim'
 alias ls='ls --color=auto'
 alias ssh='TERM=xterm-256color ssh'
