@@ -1,5 +1,5 @@
 export BROWSER=firefox
-export EDITOR=vim
+export EDITOR=nvim
 export TERM=alacritty
 
 # clean up (cache)
