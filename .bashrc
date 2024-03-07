@@ -16,9 +16,5 @@ httpd() {
   python -m http.server "${1:-8001}"
 }
 
-clippy-tts() {
-  xclip -o -selection clipboard | festival --tts
-}
-
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
