@@ -14,6 +14,7 @@ export COOKIECUTTER_CONFIG=$HOME/.config/cookiecutter/config.yaml
 export DOCKER_CONFIG=$HOME/.config/docker
 export IPYTHONDIR=$HOME/.config/ipython
 export JUPYTER_CONFIG_DIR=$HOME/.config/jupyter
+export MC_CONFIG_DIR=$HOME/.config/mc
 export PYTHONSTARTUP=$HOME/.config/python/pythonrc
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 
