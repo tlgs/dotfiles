@@ -1,0 +1,84 @@
+{
+    "shortcuts": [
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 1",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 2",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 3",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 4",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 5",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 6",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 7",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 8",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 9",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+        {
+            "command": "application:toggle-sidebar-widget",
+            "keys": [
+                "Alt 0",
+            ],
+            "selector": "body",
+            "disabled": true
+        },
+    ]
+}
