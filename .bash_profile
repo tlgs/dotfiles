@@ -21,7 +21,6 @@ export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 # clean up (local)
 export GNUPGHOME=$HOME/.local/share/gnupg
 export GOPATH=$HOME/.local/share/go
-export VAGRANT_HOME=$HOME/.local/share/vagrant
 
 # configuration
 export GOPROXY=direct
