@@ -11,3 +11,5 @@ vim.o.updatetime = 250                  -- decrease update time
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'  -- better completion experience
 vim.o.termguicolors = true              -- enable 24-bit RG
+
+vim.cmd 'colorscheme vim'
