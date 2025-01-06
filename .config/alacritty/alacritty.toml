@@ -1,4 +1,4 @@
-import = ["/home/tlgs/.config/alacritty/colorscheme.toml"]
+general.import = ["/home/tlgs/.config/alacritty/colorscheme.toml"]
 
 [cursor]
 unfocused_hollow = false
