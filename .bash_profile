@@ -23,6 +23,7 @@ export GNUPGHOME="${XDG_DATA_HOME}"/gnupg
 export GOPATH="${XDG_DATA_HOME}"/go
 
 export HISTFILE="${XDG_STATE_HOME}"/bash_history
+export PYTHON_HISTORY="${XDG_STATE_HOME}"/python_history
 export SQLITE_HISTORY="${XDG_STATE_HOME}"/sqlite_history
 
 # configuration
