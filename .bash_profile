@@ -21,9 +21,9 @@ export npm_config_cache="${XDG_CACHE_HOME}"/node
 export CARGO_HOME="${XDG_DATA_HOME}"/cargo
 export GNUPGHOME="${XDG_DATA_HOME}"/gnupg
 export GOPATH="${XDG_DATA_HOME}"/go
-export SQLITE_HISTORY="${XDG_DATA_HOME}"/sqlite_history
 
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+export HISTFILE="${XDG_STATE_HOME}"/bash_history
+export SQLITE_HISTORY="${XDG_STATE_HOME}"/sqlite_history
 
 # configuration
 export GOPROXY=direct
