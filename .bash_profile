@@ -2,33 +2,34 @@ export BROWSER=firefox
 export EDITOR=nvim
 export TERM=alacritty
 
-# clean up (cache)
-export npm_config_cache=$HOME/.cache/node
-export CARGO_HOME=$HOME/.cache/cargo
-export LESSHISTFILE=/dev/null
-export PYLINTHOME=$HOME/.cache/pylint.d
-export SQLITE_HISTORY=$HOME/.cache/sqlite/history
+XDG_CONFIG_HOME="$HOME/.config"
+XDG_CACHE_HOME="$HOME/.cache"
+XDG_DATA_HOME="$HOME/.local/share"
+XDG_STATE_HOME="$HOME/.local/state"
 
-# clean up (config)
-export COOKIECUTTER_CONFIG=$HOME/.config/cookiecutter/config.yaml
-export DOCKER_CONFIG=$HOME/.config/docker
-export IPYTHONDIR=$HOME/.config/ipython
-export JUPYTER_CONFIG_DIR=$HOME/.config/jupyter
-export MC_CONFIG_DIR=$HOME/.config/mc
-export PYTHONSTARTUP=$HOME/.config/python/pythonrc
-export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
+export ANSIBLE_HOME="${XDG_CONFIG_HOME}"/ansible
+export COOKIECUTTER_CONFIG="${XDG_CONFIG_HOME}"/cookiecutter/config.yaml
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}"/docker
+export IPYTHONDIR="${XDG_CONFIG_HOME}"/ipython
+export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME}"/jupyter
+export MC_CONFIG_DIR="${XDG_CONFIG_HOME}"/mc
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/pythonrc
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}"/starship/config.toml
 
-# clean up (local)
-export GNUPGHOME=$HOME/.local/share/gnupg
-export GOPATH=$HOME/.local/share/go
+export npm_config_cache="${XDG_CACHE_HOME}"/node
+
+export CARGO_HOME="${XDG_DATA_HOME}"/cargo
+export GNUPGHOME="${XDG_DATA_HOME}"/gnupg
+export GOPATH="${XDG_DATA_HOME}"/go
+export SQLITE_HISTORY="${XDG_DATA_HOME}"/sqlite_history
+
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 # configuration
 export GOPROXY=direct
 export GOSUMDB=off
 
-# expand PATH
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$GOPATH/bin
 
-# source bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
