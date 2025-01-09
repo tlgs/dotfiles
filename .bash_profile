@@ -28,6 +28,11 @@ export SQLITE_HISTORY="${XDG_STATE_HOME}"/sqlite_history
 # configuration
 export GOPROXY=direct
 export GOSUMDB=off
+export HISTCONTROL=both
+export HISTIGNORE="clear:history:[bf]g:exit:* --help"
+export HISTSIZE=2000
+export HISTFILESIZE=5000
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$GOPATH/bin

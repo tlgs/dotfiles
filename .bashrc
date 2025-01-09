@@ -1,7 +1,7 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-shopt -s globstar
+shopt -s globstar histappend
 
 alias vim='nvim'
 alias ls='ls --color=auto'
