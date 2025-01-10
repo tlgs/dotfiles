@@ -4,18 +4,19 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$python\
 $character
 """
 
+command_timeout = 50
+
 [character]
-success_symbol = '[::](green)'
-error_symbol = '[::](red)'
+success_symbol = '[·](green)'
+error_symbol = '[×](red)'
 
 [directory]
 format = "[$read_only]($read_only_style)[$path]($style) "
 style = "cyan"
-read_only = "🔐 "
+read_only = "󰌾 "
 
 [git_commit]
 tag_symbol = '  '
@@ -26,8 +27,3 @@ style = "blue"
 
 [git_status]
 style = "red"
-
-[python]
-symbol = " "
-format = '[${symbol}(\($virtualenv\) )]($style)'
-style = "yellow"
