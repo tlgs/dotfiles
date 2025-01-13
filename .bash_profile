@@ -29,7 +29,7 @@ export SQLITE_HISTORY="${XDG_STATE_HOME}"/sqlite_history
 # configuration
 export GOPROXY=direct
 export GOSUMDB=off
-export HISTCONTROL=both
+export HISTCONTROL=ignoreboth
 export HISTIGNORE="clear:history:[bf]g:exit:* --help"
 export HISTSIZE=2000
 export HISTFILESIZE=5000
