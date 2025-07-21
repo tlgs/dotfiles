@@ -13,7 +13,6 @@ export DOCKER_CONFIG="${XDG_CONFIG_HOME}"/docker
 export IPYTHONDIR="${XDG_CONFIG_HOME}"/ipython
 export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME}"/jupyter
 export MC_CONFIG_DIR="${XDG_CONFIG_HOME}"/mc
-export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/pythonrc
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}"/starship/config.toml
 
 export npm_config_cache="${XDG_CACHE_HOME}"/node
@@ -35,6 +34,7 @@ export HISTSIZE=2000
 export HISTFILESIZE=5000
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
+# PATH expansion
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$GOPATH/bin
 
