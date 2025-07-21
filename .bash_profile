@@ -1,6 +1,6 @@
 export BROWSER=firefox
 export EDITOR=nvim
-export TERM=alacritty
+export TERM=xterm-ghostty
 
 XDG_CONFIG_HOME="$HOME/.config"
 XDG_CACHE_HOME="$HOME/.cache"
