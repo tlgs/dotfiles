@@ -7,11 +7,11 @@ alias vim='nvim'
 alias ls='ls --color=auto'
 alias ssh='TERM=xterm-256color ssh'
 
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
 alias compose='docker compose'
 alias goat='go-ascii-tool'
 alias mc='mcli'
-
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 httpd() {
   python -m http.server "${1:-8001}"
