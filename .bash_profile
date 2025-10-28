@@ -8,6 +8,7 @@ XDG_DATA_HOME="$HOME/.local/share"
 XDG_STATE_HOME="$HOME/.local/state"
 
 export ANSIBLE_HOME="${XDG_CONFIG_HOME}"/ansible
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME}"/claude
 export COOKIECUTTER_CONFIG="${XDG_CONFIG_HOME}"/cookiecutter/config.yaml
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}"/docker
 export IPYTHONDIR="${XDG_CONFIG_HOME}"/ipython
@@ -26,6 +27,7 @@ export PYTHON_HISTORY="${XDG_STATE_HOME}"/python_history
 export SQLITE_HISTORY="${XDG_STATE_HOME}"/sqlite_history
 
 # configuration
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 export GOPROXY=direct
 export GOSUMDB=off
 export HISTCONTROL=ignoreboth
