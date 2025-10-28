@@ -7,10 +7,11 @@
     "editor.fontSize": 16,
     "files.insertFinalNewline": true,
     "telemetry.telemetryLevel": "off",
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', 'monospace', monospace, 'Droid Sans Fallback'",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.allowChords": false,
     "terminal.integrated.commandsToSkipShell": [
-	"-workbench.action.quickOpen"
+        "-workbench.action.quickOpen"
     ],
     "window.menuBarVisibility": "toggle",
     "D2.previewLayout": "tala",
